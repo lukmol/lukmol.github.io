@@ -6,10 +6,13 @@ categories: Diversification Finance optmization
 ---
 ## Evidence for Brazilian Market
 
-Today we are going to check whether the diversification index proposed by *Choueifaty and Coignard* (2008) varies over time and some characteristics of this index with `python`.The Bovespa Index is the main stock index in the Brazilian market and is composed of around 90 stocks. You can check the daily composition of the index [here](https://www.b3.com.br/pt_br/market-data-e-indices/indices/indices-amplos/indice-ibovespa-ibovespa-composicao-da-carteira.htm).
+Today we are going to check whether the diversification index proposed by *Choueifaty and Coignard* (2008) varies over time and some characteristics of this index.
+The construction of this analysis will be done using `python`.
+
+The Bovespa Index is the main stock index in the Brazilian market and is composed of around 90 stocks. You can check the daily composition of the index [here](https://www.b3.com.br/pt_br/market-data-e-indices/indices/indices-amplos/indice-ibovespa-ibovespa-composicao-da-carteira.htm).
 
 Remember the repository for this analysis can be found [here]().
-The first thing we do is import the packages that will be used here. Stock data are obtained through the `investpy` package.
+The first thing we do is import the packages that will be used here. Stock data are obtained through the `investpy` package, but it is made from the function built by me called `get_stock_dataframe`.
 
 ```python
 import pandas as pd
@@ -18,7 +21,6 @@ from investpy import get_stock_historical_data, get_index_historical_data, get_s
 from get_stocks_df import get_stock_dataframe
 ```
 the function `get_index_historical_data` is needed to get the data from the ibovespa index. And the `get_stocks_list` function is for us to know which shares of B3 can be downloaded by investpy.
-
 
 
 ```python
@@ -31,7 +33,7 @@ tickers_investpy = get_stocks_list(data_stocks.get('country'))
 
 all_tickers = theorical_portfolio['Código'].tolist()
 ```
-Below, we can check the Bovespa tickers that can be found at `investpy`. 
+Below, we check the Bovespa tickers that can be found at `investpy`. 
 
 ```python
 
@@ -40,12 +42,16 @@ tickers_stock_list = [item for item in all_tickers if item in tickers_investpy]
 filtered_theorical_portfolio = theorical_portfolio[theorical_portfolio['Código'].isin(tickers_stock_list)]
 
 amount_assets = np.array([ filtered_theorical_portfolio['Qtde. Teórica'].tolist()])
+```
+We get the total theorical amount for tickers in investpy sum them and get the individual weights in stocks.
 
+```python
 total_theorical_amount =  amount_assets.sum()
 
 weights_bovespa =  np.multiply(amount_assets,1/total_theorical_amount)
 
 ```
+
 In the Ibovespa index portfolio we had 90 stocks, in investpy we have 80 stocks. Therefore, it is important to emphasize here that the analysis done here is an approximation.
 
 
@@ -63,7 +69,7 @@ get_arithmetic_returns = lambda prices_array:  np.diff(prices_array, axis =0 ) /
 returns = get_arithmetic_returns(array_stocks)
 
 ```
-We calculate linear returns using `numpy` library.Below we build three functions. 
+We calculate linear returns using `numpy` library. Below we build three functions:
 One to calculate the covariance, another for the index of diversification of the article and also one to calculate one to calculate the rolling of this index.
 
 ```python
@@ -84,6 +90,8 @@ def rolling_diversification(returns_array,weights):
 
 	return index, diversification_rolling
 ```
+Above we used a rolling covariance matrix of 21 days. 
+
 Finally, below we call the functions created previously and verify the behavior of the mobile diversification index with the ibovespa index.
 
 ```python
@@ -98,7 +106,7 @@ ratio_df = pd.DataFrame({'Date':date_index, 'Ratio_diversification':ratio_divers
 
 Note the inverse rela of diversification ration and 
 
-![diversification](/assets/images/diversification_ratio.png =100x20)
+![diversification](/assets/images/diversification_ratio.png)
 
 
 ### References
