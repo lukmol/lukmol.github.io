@@ -107,6 +107,7 @@ ratio_df = pd.DataFrame({'Date':date_index, 'Ratio_diversification':ratio_divers
 
 ```
 
+![diversification](images/diversification.html)
 
 
 ### References
