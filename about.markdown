@@ -4,15 +4,9 @@ title: About
 permalink: /about/
 ---
 
-This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](https://jekyllrb.com/)
+I am a quantitative analyst currently living in Brazil. I'm finishing my Phd in Statistics at USP focusing on financial time series clustering. Currently Im a Financial Data Scientist in [Guide](https://www.guide.com.br/). My interest in volatility modeling research, statistical learning, statistical inference, portfolio optimization.
 
-You can find the source code for Minima at GitHub:
-[jekyll][jekyll-organization] /
-[minima](https://github.com/jekyll/minima)
+Doubts? Send me an email.
 
-You can find the source code for Jekyll at GitHub:
-[jekyll][jekyll-organization] /
-[jekyll](https://github.com/jekyll/jekyll)
-
-
-[jekyll-organization]: https://github.com/jekyll
+You can find the source code of my posts at GitHub:
+[lukmol](https://github.com/lukmol)
