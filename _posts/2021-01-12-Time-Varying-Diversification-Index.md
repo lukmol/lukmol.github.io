@@ -12,20 +12,16 @@ Remember the repository for this analysis can be found [here]().
 The first thing we do is import the packages that will be used here. Stock data are obtained through the `investpy` package.
 
 ```python
-
 import pandas as pd
 import numpy as np
 from investpy import get_stock_historical_data, get_index_historical_data, get_stocks_list
 from get_stocks_df import get_stock_dataframe
-
-
 ```
 the function `get_index_historical_data` is needed to get the data from the ibovespa index. And the `get_stocks_list` function is for us to know which shares of B3 can be downloaded by investpy.
 
 
 
 ```python
-
 data_stocks =  {'start_date': '01/01/2019',
 				'country': ' brazil',
 				'final_date':'21/10/2021' }
@@ -71,18 +67,14 @@ We calculate linear returns using `numpy` library.Below we build three functions
 One to calculate the covariance, another for the index of diversification of the article and also one to calculate one to calculate the rolling of this index.
 
 ```python
-
 get_covariance = lambda returns_array: np.cov(returns_array.T)
-
 
 diversification_index = lambda  volatilities,covariance,weights: np.dot(weights, volatilities.T)/ np.sqrt(np.dot(np.dot(weights,covariance.T),weights.T))
 
 def rolling_diversification(returns_array,weights):
-
 	days_rolling = 21
 	diversification_rolling = [] ; index = []
 	size_array = returns_array.shape[0]
-
 	for i in range(days_rolling,size_array,days_rolling):
 		covariance = get_covariance(returns_array[i-days_rolling:i])  
 		vol_stocks = np.array([np.diag(covariance)])
@@ -91,9 +83,6 @@ def rolling_diversification(returns_array,weights):
 		index.append(i); diversification_rolling.append(div_index[0][0])
 
 	return index, diversification_rolling
-
-
-
 ```
 Finally, below we call the functions created previously and verify the behavior of the mobile diversification index with the ibovespa index.
 
