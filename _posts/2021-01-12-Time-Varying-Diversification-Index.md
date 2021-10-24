@@ -103,5 +103,5 @@ Note the inverse rela of diversification ration and
 
 ### References
 
-- [**Yves Choueifaty and Yves Coignard, Toward Maximum Diversification***](https://jpm.pm-research.com/content/35/1/40.short)
-- [**Investpy**](https://investpy.readthedocs.io/)
+- [Yves Choueifaty and Yves Coignard, Toward Maximum Diversification](https://jpm.pm-research.com/content/35/1/40.short)
+- [Investpy](https://investpy.readthedocs.io/)
