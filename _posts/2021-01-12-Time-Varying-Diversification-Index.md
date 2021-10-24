@@ -96,6 +96,7 @@ ratio_df = pd.DataFrame({'Date':date_index, 'Ratio_diversification':ratio_divers
 
 ```
 
+Note the inverse rela of diversification ration and 
 ![diversification](/assets/images/diversification_ratio.png)
 
 
