@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Is the diversification ratio time-varying?"
-date:   2021-10-21 16:20:00 -0300
+date:   2021-10-24 16:20:00 -0300
 categories: Diversification Finance optmization
 ---
 ## Evidence for Brazilian Market
