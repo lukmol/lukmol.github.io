@@ -4,7 +4,7 @@ title: About
 permalink: /about/
 ---
 
-I am a quantitative analyst currently living in Brazil. I'm finishing my Phd in Statistics at USP focusing on financial time series clustering. Currently Im a Financial Data Scientist in [Guide](https://www.guide.com.br/). My interest in volatility modeling research, statistical learning, statistical inference, portfolio optimization.
+I am Lucas Miranda a quantitative analyst currently living in Brazil. I'm finishing my Phd in Statistics at USP focusing on financial time series clustering. Currently Im a Financial Data Scientist in [Guide](https://www.guide.com.br/). My interest in volatility modeling research, statistical learning, statistical inference, portfolio optimization.
 
 Doubts? Send me an email.
 
