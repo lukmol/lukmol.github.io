@@ -92,7 +92,7 @@ def rolling_diversification(returns_array,weights):
 ```
 Above we used a rolling covariance matrix of 21 days. 
 
-Finally, below we call the functions created previously and verify the behavior of the mobile diversification index with the ibovespa index.
+Finally, below we call the functions created previously and verify the behavior of the rolling diversification index with the ibovespa index.
 
 ```python
 date_index_diversification,ratio_diversification = rolling_diversification(returns,weights_bovespa) 
