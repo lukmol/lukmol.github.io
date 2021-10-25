@@ -101,10 +101,12 @@ date_index = [stocks_bovespa.index.tolist()[i] for i in date_index_diversificati
 
 ratio_df = pd.DataFrame({'Date':date_index, 'Ratio_diversification':ratio_diversification})
 
-
 ```
 
-Note the inverse rela of diversification ration and 
+Note the inverse relationship between the diversification index and the Ibovespa.
+
+In bear times are where the greatest opportunities for diversification are seen, note that at the end of March 2020 some stocks had very different behaviors and the covariances were noisy. Therefore, the diversification index expands strongly.
+
 
 ![diversification](/assets/images/diversification_ratio.png)
 
@@ -113,3 +115,4 @@ Note the inverse rela of diversification ration and
 
 - [Yves Choueifaty and Yves Coignard, Toward Maximum Diversification](https://jpm.pm-research.com/content/35/1/40.short)
 - [Investpy](https://investpy.readthedocs.io/)
+- [Repository on github](https://github.com/lukmol/Diversification-Index)
