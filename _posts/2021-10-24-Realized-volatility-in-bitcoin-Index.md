@@ -5,7 +5,7 @@ categories: R HFT RV Crypto
 ---
 
 
-One of the most relevant characteristics of digital assets is the high volatility observed in their prices. In this context, it is necessary that we have an adequate estimate of this parameter. In addition, there is great value in models that seek to predict future asset volatility values, which can be seen in the extensive literature on this topic. Here we will manipulate a high frequency database (tick a tick), extracted from binace to access the repository click [here](https://github.com/lukmol/BTC-HFT). Let's calculate realized volatility and forecast it.
+One of the most relevant characteristics of digital assets is the high volatility observed in their prices. In this context, it is necessary that we have an adequate estimate of this parameter. In addition, there is great value in models that seek to predict future asset volatility values, which can be seen in the extensive literature on this topic. Here we will manipulate a Bitcoin high frequency database, extracted from Binance to access the repository click [here](https://github.com/lukmol/BTC-HFT). Let's calculate realized volatility and forecast it.
 
 ```r
 pacman::p_load(tidyverse,magrittr,dplyr,lubridate,zoo,xts,stringr,highfrequency)
@@ -41,20 +41,21 @@ returns_btc <- df_BTC[, makeReturns(PRICE), by = list(DATE = as.Date(DT))]
 
 btc <- as.xts(returns_btc$V1, order.by = as.POSIXct(as.character(returns_btc$DATE)))
 ```
-The HAR model is nothing more than an OLS that takes into account different periods according to how the information can be interpreted by each trader.
 
+In addition to realized volatility, it is of interest to estimate future realized volatility, we do this through the heterogeneous autoregressive (HAR) model of [Corsi (2009)](https://scholar.google.com/citations?user=0S6oWnAAAAAJ&hl=en).
 ```r
 HAR_RV <- HARmodel(btc, periods = c(1,3),
                    RVest = c("rAVGCov"), type="HAR",
                    inputType = 'returns')
 ```
 
+The HAR model is nothing more than an OLS that takes into account different periods according to how the information can be interpreted by each trader.
+
 
 ![output](/assets/images/HAR_output.png)
 
-In addition to realized volatility, it is of interest to estimate future realized volatility, we do this through the heterogeneous autoregressive (HAR) model of [Corsi (2009)](https://scholar.google.com/citations?user=0S6oWnAAAAAJ&hl=en).
 
-
+Below we can see the predicted and observed values:
 
 ![observed](/assets/images/RV_BTC.png)
 
