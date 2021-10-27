@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Realized Volatility in Bitcoin
+title: "Realized Volatility in Bitcoin" 
 date:   2021-10-25 18:40:00 -0300
 categories: R HFT RV Crypto  
 ---
