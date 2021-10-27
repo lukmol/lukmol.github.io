@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "A Look at the heavy left tail and its distribution "
+title:  "A Look at the heavy left tail and its distribution"
 date:   2021-10-25 18:40:00 -0300
 categories: R Finance distributions CVaR Statistical 
 ---

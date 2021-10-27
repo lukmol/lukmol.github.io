@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "The-Hidden-Risks-in-the -Hierarchical-Risk-Parity-Part-1"
+title: "The Hidden Risks in the Hierarchical Risk Parity-Part 1"
 date:   2021-10-26 00:00:00 -0300
 categories: R HRP RiskParity ML Clustering 
 ---
